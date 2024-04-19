@@ -35,7 +35,7 @@ import java.util.Random;
 
 
 
-    public boolean issuccessful(int playerID ) {
+    abstract boolean issuccessful(int playerID ) {
 
         Random pc = new Random();
 

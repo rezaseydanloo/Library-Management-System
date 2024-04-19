@@ -17,13 +17,11 @@ public class seeker extends player {
 
         player_seeker.setPlayerChance(5);
 
-        if (player_seeker.issuccessful(seekerID)){
-
+        if (player_seeker.issuccessful(this.seekerID))
             return true;
+        else
+            return false;
 
-        }
-
-        return false;
 
     }
 }
