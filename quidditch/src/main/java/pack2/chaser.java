@@ -11,7 +11,6 @@ public class chaser extends player{
     public boolean chasermethod(){
 
         player player_chaser = new player();
-
         player_chaser.setPlayerChance(30);
 
         if (player_chaser.issuccessful(this.chaserID))

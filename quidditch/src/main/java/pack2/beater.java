@@ -12,7 +12,6 @@ public class beater extends player{
 
 
         player player_beater = new player();
-
         player_beater.setPlayerChance(40);
 
         if (player_beater.issuccessful(this.beaterId))
