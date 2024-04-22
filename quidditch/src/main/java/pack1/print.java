@@ -19,7 +19,7 @@ public class print {
         System.out.println("number of goal team 1 : " + team_goal.getGoal_team1());
         System.out.println("number of goal team 2 : " + team_goal.getGoal_team2());
         System.out.println("----------------------------------------");
-        System.out.print("round : " + roundmatch);
+        System.out.print("round : " + roundmatch + " score : " + score);
         System.out.println("\n");
 
 
@@ -40,7 +40,7 @@ public class print {
 
     }
 
-    static void printgoldensnitch (String winner){
+    static void printgoldensnitch (String winner , int seekerID){
 
         team team_goal = new team();
 

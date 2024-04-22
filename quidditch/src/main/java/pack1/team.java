@@ -9,33 +9,27 @@ import java.util.List;
 
 public class team {
 
-
-
-    private int goal_team1;
-    private int getGoal_team2;
-
-
+    private int goal_team1 =0;
+    private int getGoal_team2 =0;
 
     HashMap<String,Integer> membernameId = new HashMap<>();
     {
-        membernameId.put("keeper team1" , 111);
-        membernameId.put("seeker team1", 121);
-        membernameId.put("chaser1 team1", 131);
-        membernameId.put("chaser2 team1", 132);
-        membernameId.put("chaser3 team1", 133);
-        membernameId.put("beater1 team1", 141);
-        membernameId.put("beater2 team1", 142);
+        membernameId.put("kteam1" , 111);
+        membernameId.put("steam1" , 121);
+        membernameId.put("c1team1", 131);
+        membernameId.put("c2team1", 132);
+        membernameId.put("c3team1", 133);
+        membernameId.put("b1team1", 141);
+        membernameId.put("b2team1", 142);
 
-        membernameId.put("keeper team2" , 211);
-        membernameId.put("seeker team2", 221);
-        membernameId.put("chaser1 team2", 231);
-        membernameId.put("chaser2 team2", 232);
-        membernameId.put("chaser3 team2", 233);
-        membernameId.put("beater1 team2", 241);
-        membernameId.put("beater2 team2", 242);
+        membernameId.put("kteam2" , 211);
+        membernameId.put("steam2" , 221);
+        membernameId.put("c1team2", 231);
+        membernameId.put("c2team2", 232);
+        membernameId.put("c3team2", 233);
+        membernameId.put("b1team2", 241);
+        membernameId.put("b2team2", 242);
     }
-
-
 
 
     public void setGoal_team1(int goal_team1) {
@@ -54,16 +48,4 @@ public class team {
         return goal_team1;
     }
 
-
-    public boolean teamplay(boolean status) {
-
-        if (status == true) {
-
-
-
-
-        }
-
-
-    }
 }

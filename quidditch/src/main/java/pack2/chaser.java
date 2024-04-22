@@ -3,7 +3,6 @@ package pack2;
 public class chaser extends player{
 
 
-
     public boolean chasermethod(int chaserID){
 
         player player_chaser = new player();

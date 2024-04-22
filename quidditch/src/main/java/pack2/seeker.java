@@ -3,7 +3,6 @@ package pack2;
 public class seeker extends player {
 
 
-
     public boolean seekermethod(int seekerID) {
 
         player player_seeker = new player();
