@@ -9,8 +9,8 @@ import java.util.List;
 
 public class team {
 
-    private int goal_team1 =0;
-    private int getGoal_team2 =0;
+    private int goal_team1 ;
+    private int getGoal_team2 ;
 
     HashMap<String,Integer> membernameId = new HashMap<>();
     {
@@ -41,11 +41,11 @@ public class team {
     }
 
     public int getGoal_team2() {
-        return getGoal_team2;
+        return this.getGoal_team2;
     }
 
     public int getGoal_team1() {
-        return goal_team1;
+        return this.goal_team1;
     }
 
 }

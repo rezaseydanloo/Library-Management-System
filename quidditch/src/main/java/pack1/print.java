@@ -11,30 +11,30 @@ public class print {
 
 
     // print method after each goal team 1
-    static void print_team1 (){
+    static void print_team1 (int goal_team1 , int goal_team2 ){
 
         team team_goal = new team();
 
         System.out.println("suiiiiii------ team 1");
-        System.out.println("number of goal team 1 : " + team_goal.getGoal_team1());
-        System.out.println("number of goal team 2 : " + team_goal.getGoal_team2());
+        System.out.println("number of goal team 1 : " + goal_team1);
+        System.out.println("number of goal team 2 : " + goal_team2);
         System.out.println("----------------------------------------");
-        System.out.print("round : " + roundmatch + " score : " + score);
+        System.out.print("[round : " + roundmatch + "] "  + " [score : " +  score + "]");
         System.out.println("\n");
 
 
     }
 
     // print method after each goal team 2
-    static void print_team2 (){
+    static void print_team2 (int goal_team1 , int goal_team2 ){
 
         team team_goal = new team();
 
         System.out.println("suiiiiii------ team 2");
-        System.out.println("number of goal team 1 : " + team_goal.getGoal_team1());
-        System.out.println("number of goal team 2 : " + team_goal.getGoal_team2());
+        System.out.println("number of goal team 1 : " + goal_team1);
+        System.out.println("number of goal team 2 : " + goal_team2);
         System.out.println("----------------------------------------");
-        System.out.print("round : " + roundmatch + " score : " + score);
+        System.out.print("[round : " + roundmatch + "] "  + " [score : " +  score + "]");
         System.out.println("\n");
 
 
@@ -45,7 +45,7 @@ public class print {
         team team_goal = new team();
 
         System.out.println("golen snitch has been been found by " + winner);
-        System.out.print("round : " + roundmatch + " score : " + score);
+        System.out.print("[round : " + roundmatch + "] "  + " [score : " +  score + "] "+ " [seeker ID : " + seekerID + "]");
         System.out.println("\n");
     }
 

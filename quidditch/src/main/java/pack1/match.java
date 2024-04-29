@@ -5,10 +5,10 @@ import pack2.*;
 public class match {
 
     int score;
-    seeker seekerobj;
-    keeper keeperobj;
-    chaser chaserobj;
-    beater beaterobj;
+    seeker seekerobj = new seeker();
+    keeper keeperobj = new keeper();
+    chaser chaserobj = new chaser();
+    beater beaterobj = new beater();
     team teamobj = new team();
 
 
@@ -37,8 +37,9 @@ public class match {
                         || chaserobj.chasermethod(teamobj.membernameId.get("c1team1")) && chaserobj.chasermethod(teamobj.membernameId.get("c3team1"))) {
                     if (beaterobj.beatermethod(teamobj.membernameId.get("b1team1")) || beaterobj.beatermethod(teamobj.membernameId.get("b2team1"))) {
 
-                        teamobj.setGoal_team1(teamobj.getGoal_team1() + 1);
-                        print.print_team1();
+
+                        teamobj.setGoal_team1(teamobj.getGoal_team1()+1);
+                        print.print_team1(teamobj.getGoal_team1(), teamobj.getGoal_team2());
                     }
                 }
             }
@@ -57,8 +58,8 @@ public class match {
                         || chaserobj.chasermethod(teamobj.membernameId.get("c1team2")) && chaserobj.chasermethod(teamobj.membernameId.get("c3team2"))) {
                     if (beaterobj.beatermethod(teamobj.membernameId.get("b1team2")) || beaterobj.beatermethod(teamobj.membernameId.get("b2team2"))) {
 
-                        teamobj.setGoal_team1(teamobj.getGoal_team1() + 1);
-                        print.print_team2();
+                        teamobj.setGoal_team2(teamobj.getGoal_team2() + 1);
+                        print.print_team2(teamobj.getGoal_team1(), teamobj.getGoal_team2()  );
 
                     }
                 }
