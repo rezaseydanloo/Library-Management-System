@@ -2,49 +2,39 @@ package Library;
 
 public class Book {
 
-    private String Description ;
     private String BookName ;
     private String Author ;
+    private String Description ;
     private int BookId ;
     private boolean BookStatus;
 
-    public String getDescription() {
-        return Description;
-    }
+    public Book(String bookName, String author, String description, int bookId, boolean bookStatus) {
 
-    public void setDescription(String description) {
-        Description = description;
+        this.BookName = bookName;
+        this.Author = author;
+        this.Description = description;
+        this.BookId = bookId;
+        this.BookStatus = bookStatus;
+
     }
 
     public String getBookName() {
         return BookName;
     }
 
-    public void setBookName(String bookName) {
-        BookName = bookName;
-    }
-
     public String getAuthor() {
         return Author;
     }
 
-    public void setAuthor(String author) {
-        Author = author;
+    public String getDescription() {
+        return Description;
     }
 
     public int getBookId() {
         return BookId;
     }
 
-    public void setBookId(int bookId) {
-        BookId = bookId;
-    }
-
     public boolean isBookStatus() {
         return BookStatus;
-    }
-
-    public void setBookStatus(boolean bookStatus) {
-        BookStatus = bookStatus;
     }
 }
