@@ -1,13 +1,16 @@
 package Library;
 
 import java.lang.reflect.Array;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Library {
 
 
     ArrayList <Book> BookRepository = new ArrayList<>();
     ArrayList <Admin> AdminInformation  = new ArrayList<>();
+    ArrayList <NormalUser> NormalUserList = new ArrayList<>();
 
 
     //------------------------------------------------------------------------------------------------------------------
@@ -26,6 +29,17 @@ public class Library {
 
         Admin AdminObject =new Admin(FirstName , LastName , IdMaker(FirstName,LastName) , AdminPassword);
         AdminInformation.add(AdminObject);
+
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    public void add_newUser (String FirstName , String LastName , int UserId , int UserPhoneNumber , int RegistrationTime){
+
+
+        Date DateNow = new Date();
+        NormalUser NormalUserObject= new NormalUser(FirstName , LastName , UserId , UserPhoneNumber , DateNow.toString());
+        NormalUserList.add(NormalUserObject);
 
     }
 
