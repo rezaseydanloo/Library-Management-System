@@ -9,6 +9,8 @@ public class Rent {
     private String RentalDate ;
     private String BookName ;
 
+    Library LibraryObject = new Library();
+
 
     public Rent (int RentalId , int UserId , String BookNmae , String RentalDate){
 
