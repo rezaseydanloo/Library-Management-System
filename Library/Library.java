@@ -60,13 +60,19 @@ public class Library  {
     public int IdMaker (String input1 , String input2){
 
         String[] inPutString ;
-        input1+=input2;
-        inPutString=input1.split("");
-        int ID=0;
+        String str;
 
+        str=input1;
+        str+=input2;
+
+        inPutString=str.split("");
+        int ID=0;
+        char str2;
+
+        System.out.println("salam");
 
         for (int i=0 ; i<inPutString.length ; i++){
-            ID+=Integer.getInteger(inPutString[i]);
+            ID+=Integer.parseInt(inPutString[i]);
         }
 
         return ID;
