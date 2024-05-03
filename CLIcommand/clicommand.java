@@ -45,6 +45,46 @@ public class clicommand {
             Matcher line6 = Line6.matcher(inputString);
             Matcher line7 = Line7.matcher(inputString);
 
+
+            if (line1.find()){
+
+                System.out.println("line 1 dorost");
+                System.out.println(line1.group(6));
+                System.out.println(line1.group(5));
+
+            }
+            else if (line2.matches()) {
+
+                System.out.println("line 2 dorost");
+            }
+
+            else if (line3.find()) {
+
+                System.out.println("line 3 dorost");
+            }
+
+            else if (line4.find()) {
+
+                System.out.println("line 4 dorost");
+            }
+
+            else if (line5.find()){
+
+                System.out.println("line 5 dorost");
+            }
+
+            else if (line6.find()) {
+
+                System.out.println("line 6 dorost");
+            }
+
+            else if (line7.find()) {
+
+                System.out.println("line 7 dorost");
+            }
+            else
+                System.out.println("|-! something went wrong , try again ");
+
         }
 
     }
