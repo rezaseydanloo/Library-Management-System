@@ -1,5 +1,6 @@
 package CLIcommand;
 
+import Library.*;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -45,12 +46,12 @@ public class clicommand {
             Matcher line6 = Line6.matcher(inputString);
             Matcher line7 = Line7.matcher(inputString);
 
+            Library LibraryObject_CLI = new Library();
 
             if (line1.find()){
 
-                System.out.println("line 1 dorost");
-                System.out.println(line1.group(6));
-                System.out.println(line1.group(5));
+                LibraryObject_CLI.add_book(line1.group(4),line1.group(5),line1.group(6));
+                System.out.println("|-^-- accepted ");
 
             }
             else if (line2.matches()) {
