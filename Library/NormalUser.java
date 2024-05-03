@@ -8,6 +8,8 @@ public class NormalUser {
     int UserPhoneNumber ;
     String RegistrationTime ;
 
+    Library LibraryObject = new Library();
+
     public NormalUser(String firstName, String lastName, int userId, int userPhoneNumber, String registrationTime) {
         FirstName = firstName;
         LastName = lastName;
