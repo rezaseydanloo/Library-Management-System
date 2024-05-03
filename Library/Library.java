@@ -4,13 +4,15 @@ import java.lang.reflect.Array;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
-public class Library {
+public class Library <E,t> {
 
 
     ArrayList <Book> BookRepository = new ArrayList<>();
     ArrayList <Admin> AdminInformation  = new ArrayList<>();
     ArrayList <NormalUser> NormalUserList = new ArrayList<>();
+    HashMap<String,Rent> RentInformation = new HashMap<>();
 
 
     //------------------------------------------------------------------------------------------------------------------
@@ -38,8 +40,18 @@ public class Library {
 
 
         Date DateNow = new Date();
-        NormalUser NormalUserObject= new NormalUser(FirstName , LastName , UserId , UserPhoneNumber , DateNow.toString());
+        NormalUser NormalUserObject= new NormalUser(FirstName , LastName , IdMaker(FirstName,LastName) , UserPhoneNumber , DateNow.toString());
         NormalUserList.add(NormalUserObject);
+
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    public void Register_Rent (int RentalId , int UserId , String BookNmae , String RentalDate){
+
+
+        Date DateNow = new Date();
+        Rent RentObject = new Rent(RentalId , UserId , BookNmae , DateNow.toString());
 
     }
 
