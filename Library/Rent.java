@@ -4,13 +4,34 @@ import java.util.HashMap;
 
 public class Rent {
 
-    demoRent demoRentobj;
-    HashMap <Integer,demoRent> Rental_information = new HashMap<>();
+    private  int RentalId;
+    private int UserId ;
+    private String RentalDate ;
+    private String BookName ;
 
-    public void Rental_Record (int userID) {
 
-        demoRentobj = new demoRent();
-        Rental_information.put(userID,demoRentobj);
+    public Rent (int RentalId , int UserId , String BookNmae , String RentalDate){
 
+        this.RentalId=RentalId;
+        this.UserId=UserId;
+        this.BookName=BookNmae;
+        this.RentalDate=RentalDate;
+
+    }
+
+    public int getRentalId() {
+        return RentalId;
+    }
+
+    public int getUserId() {
+        return UserId;
+    }
+
+    public String getRentalDate() {
+        return RentalDate;
+    }
+
+    public String getBookName() {
+        return BookName;
     }
 }
