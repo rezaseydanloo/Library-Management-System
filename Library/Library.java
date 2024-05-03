@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
-public class Library <E,t> {
+public class Library  {
 
 
     ArrayList <Book> BookRepository = new ArrayList<>();
@@ -36,7 +36,7 @@ public class Library <E,t> {
 
     //------------------------------------------------------------------------------------------------------------------
 
-    public void add_newUser (String FirstName , String LastName , int UserId , int UserPhoneNumber , int RegistrationTime){
+    public void add_newUser (String FirstName ,String LastName , int UserId, int UserPhoneNumber, int RegistrationTime){
 
 
         Date DateNow = new Date();
