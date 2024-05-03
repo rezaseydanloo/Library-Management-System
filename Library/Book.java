@@ -8,6 +8,8 @@ public class Book {
     private int BookId ;
     private boolean BookStatus;
 
+    Library LibraryObject = new Library();
+
     public Book(String bookName, String author, String description, int bookId, boolean bookStatus) {
 
         this.BookName = bookName;
