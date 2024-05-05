@@ -9,6 +9,7 @@ public class clicommand {
 
     public void cli() {
 
+        System.out.println("|-----cli ");
         System.out.println("|-lib add book <name> <author> <Description>     :Add a new book to the library.");
         System.out.println("|-lib get hrs                                    :Retrieve library operating hours (super admin privilege required).");
         System.out.println("|-lib add member <memberID> <password>           :Add a new member to the library (admin privilege required).");
