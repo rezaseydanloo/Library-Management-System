@@ -5,18 +5,17 @@ public class Admin {
     private String FirstName ;
     private String LastName ;
     private int AdminId ;
-    private int AdminPassword ;
+    private String AdminPassword ;
 
     Library LibraryObject = new Library();
 
-    public Admin(String firstName, String lastName, int adminId, int adminPassword) {
+    public Admin(String firstName, String lastName, int adminId, String adminPassword) {
 
         FirstName = firstName;
         LastName = lastName;
         AdminId = adminId;
         AdminPassword = adminPassword;
-
-        Rent test = new Rent(5645 , 545 , "sadfdf " , "cdcdc");
+        
 
     }
 
@@ -32,7 +31,7 @@ public class Admin {
         return AdminId;
     }
 
-    public int getAdminPassword() {
+    public String getAdminPassword() {
         return AdminPassword;
     }
 }
