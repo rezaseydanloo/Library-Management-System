@@ -4,8 +4,9 @@ public class MyApp {
 
     public static void main(String[] args) {
 
-        clicommand start = new clicommand();
-        start.cli();
+        clicommand startclicommand  = new clicommand();
+        CLIcommandSuperAdmin startsuperclicommand = new CLIcommandSuperAdmin();
+        startsuperclicommand.SuperCLI();
 
     }
 }
