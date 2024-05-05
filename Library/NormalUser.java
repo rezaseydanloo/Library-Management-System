@@ -2,11 +2,11 @@ package Library;
 
 public class NormalUser {
 
-    String FirstName ;
-    String LastName ;
-    int UserId ;
-    int UserPhoneNumber ;
-    String RegistrationTime ;
+    private String FirstName ;
+    private String LastName ;
+    private int UserId ;
+    private int UserPhoneNumber ;
+    private String RegistrationTime ;
 
     Library LibraryObject = new Library();
 
