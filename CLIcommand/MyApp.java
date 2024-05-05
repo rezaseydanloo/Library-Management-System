@@ -6,7 +6,7 @@ public class MyApp {
 
         clicommand startclicommand  = new clicommand();
         CLIcommandSuperAdmin startsuperclicommand = new CLIcommandSuperAdmin();
-        startsuperclicommand.SuperCLI();
+        startsuperclicommand.SuperLogIn();
 
     }
 }
