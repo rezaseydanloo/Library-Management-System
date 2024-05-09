@@ -6,7 +6,7 @@ import java.util.Date;
 public class Library  {
 
 
-    ArrayList <Book> BookRepository = new ArrayList<>();
+    ArrayList <Book> BookRepository = new ArrayList<Book>();
     ArrayList <Admin> AdminList = new ArrayList<>();
     ArrayList <NormalUser> NormalUserList = new ArrayList<>();
     ArrayList <Rent> RentList = new ArrayList<>();
@@ -17,8 +17,9 @@ public class Library  {
 
     public void add_book (String BookName , String Author , String Description){
 
-        Book BookObject = new Book(BookName,Author,Description,100000+IdMaker(BookName,Author),true);
-        BookRepository.add(BookObject);
+        Book BookObject = new Book(BookName,Author,Description,IdMaker(BookName,Author),true);
+        this.BookRepository.add(BookObject);
+
 
     }
 
@@ -31,29 +32,47 @@ public class Library  {
         this.AdminList.add(AdminObject);
 
 
-
     }
 
     //------------------------------------------------------------------------------------------------------------------
 
-    public void add_newUser (String FirstName ,String LastName , int UserId, int UserPhoneNumber, int RegistrationTime){
+    public void add_newUser (String FirstName ,String LastName , String UserPhoneNumber){
 
 
         Date DateNow = new Date();
         NormalUser NormalUserObject= new NormalUser(FirstName , LastName , IdMaker(FirstName,LastName) , UserPhoneNumber , DateNow.toString());
         NormalUserList.add(NormalUserObject);
+        System.out.println(NormalUserList.size());
 
     }
 
     //------------------------------------------------------------------------------------------------------------------
 
-    public void Register_Rent ( int UserId , String BookNmae , String UserName){
+    public void Register_Rent (  String BookNmae , String FirstName , String LastName , String UserId){
 
 
         Date DateNow = new Date();
-        Rent RentObject = new Rent(IdMaker(BookNmae,UserName) , UserId , BookNmae , DateNow.toString());
+        Rent RentObject = new Rent(IdMaker(BookNmae,LastName+FirstName) , UserId , BookNmae , DateNow.toString());
         RentList.add(RentObject);
 
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    public void available (){
+
+
+            for (int i = 0 ; i<BookRepository.size() ; i++){
+
+                System.out.println("|- Book   name : " + BookRepository.get(i).getBookName());
+                System.out.println("|- Author name : " + BookRepository.get(i).getBookName());
+                System.out.println("|- Description : " + BookRepository.get(i).getDescription());
+                System.out.println("|- Book ID     : " + BookRepository.get(i).getBookId());
+                System.out.println("|- Book status : " + BookRepository.get(i).isBookStatus());
+                System.out.println("|--------------------------------------------------------");
+
+
+        }
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -61,7 +80,7 @@ public class Library  {
 
     public void NormalUserIdFinder(String FirstName , String LastName) {
 
-        boolean status = false;
+
         System.out.println("|---list ");
 
         for (int i = 0 ; i<NormalUserList.size() ; i++){
@@ -71,15 +90,9 @@ public class Library  {
                 System.out.println("|- FName : " + FirstName );
                 System.out.println("|- LName : " + LastName  );
                 System.out.println("|- ID : " + NormalUserList.get(i).getUserId());
-                System.out.print("|----------------------------------------------------");
-                status = true;
+                System.out.println("|----------------------------------------------------");
 
             }
-
-            else if (status==true){
-                System.out.println("|-! user not found (maybe user have not registered yet) . ");
-            }
-
         }
     }
 
@@ -87,7 +100,7 @@ public class Library  {
 
     public void AdminIdFinder (){
 
-        Library object = new Library();
+
 
         for (int i=0 ; i<AdminList.size() ; i++){
 
