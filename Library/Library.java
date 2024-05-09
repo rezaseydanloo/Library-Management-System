@@ -1,26 +1,23 @@
 package Library;
 
-import java.lang.reflect.Array;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Objects;
 
 public class Library  {
 
 
     ArrayList <Book> BookRepository = new ArrayList<>();
-    ArrayList <Admin> AdminInformation  = new ArrayList<>();
+    ArrayList <Admin> AdminList = new ArrayList<>();
     ArrayList <NormalUser> NormalUserList = new ArrayList<>();
-    HashMap<String,Rent> RentInformation = new HashMap<>();
+    ArrayList <Rent> RentList = new ArrayList<>();
+
 
 
     //------------------------------------------------------------------------------------------------------------------
 
     public void add_book (String BookName , String Author , String Description){
 
-        Book BookObject = new Book(BookName,Author,Description,IdMaker(BookName,Author),true);
+        Book BookObject = new Book(BookName,Author,Description,100000+IdMaker(BookName,Author),true);
         BookRepository.add(BookObject);
 
     }
@@ -28,10 +25,12 @@ public class Library  {
     //------------------------------------------------------------------------------------------------------------------
 
 
-    public void add_admin (String FirstName , String LastName , int AdminId , int AdminPassword ){
+    public void add_admin (String FirstName , String LastName ,String AdminPassword ){
 
-        Admin AdminObject =new Admin(FirstName , LastName , IdMaker(FirstName,LastName) , AdminPassword);
-        AdminInformation.add(AdminObject);
+        Admin AdminObject = new Admin (FirstName , LastName , IdMaker(FirstName , LastName),  AdminPassword );
+        this.AdminList.add(AdminObject);
+
+
 
     }
 
@@ -48,29 +47,30 @@ public class Library  {
 
     //------------------------------------------------------------------------------------------------------------------
 
-    public void Register_Rent (int RentalId , int UserId , String BookNmae , String RentalDate){
+    public void Register_Rent ( int UserId , String BookNmae , String UserName){
 
 
         Date DateNow = new Date();
-        Rent RentObject = new Rent(RentalId , UserId , BookNmae , DateNow.toString());
+        Rent RentObject = new Rent(IdMaker(BookNmae,UserName) , UserId , BookNmae , DateNow.toString());
+        RentList.add(RentObject);
 
     }
 
     //------------------------------------------------------------------------------------------------------------------
 
 
-    public void IdFinder (String FirstName , String LastName) {
+    public void NormalUserIdFinder(String FirstName , String LastName) {
 
         boolean status = false;
         System.out.println("|---list ");
 
         for (int i = 0 ; i<NormalUserList.size() ; i++){
 
-            if (FirstName.equals(NormalUserList.get(i).FirstName) && LastName.equals(NormalUserList.get(i).LastName)){
+            if (FirstName.equals(NormalUserList.get(i).getFirstName()) && LastName.equals(NormalUserList.get(i).getLastName())){
 
                 System.out.println("|- FName : " + FirstName );
                 System.out.println("|- LName : " + LastName  );
-                System.out.println("|- ID : " + NormalUserList.get(i).UserId);
+                System.out.println("|- ID : " + NormalUserList.get(i).getUserId());
                 System.out.print("|----------------------------------------------------");
                 status = true;
 
@@ -85,6 +85,22 @@ public class Library  {
 
     //------------------------------------------------------------------------------------------------------------------
 
+    public void AdminIdFinder (){
+
+        Library object = new Library();
+
+        for (int i=0 ; i<AdminList.size() ; i++){
+
+            System.out.println("|-Admin First Name : " + AdminList.get(i).getFirstName());
+            System.out.println("|-Admin Last  Name : " + AdminList.get(i).getLastName());
+            System.out.println("|-Admin ID         : " + AdminList.get(i).getAdminId());
+            System.out.println("|--------------------------------------------------------");
+
+        }
+
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
     public int IdMaker (String input1 , String input2){
 
         char[] inPutString ;
