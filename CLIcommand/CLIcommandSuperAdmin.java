@@ -6,8 +6,10 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 public class CLIcommandSuperAdmin {
 
+    Library LibraryObject = new Library();
     clicommand startclicommand  = new clicommand();
 
 
@@ -92,7 +94,7 @@ public class CLIcommandSuperAdmin {
         Pattern ListPattern = Pattern.compile("list" , Pattern.CASE_INSENSITIVE);
 
         Scanner input = new Scanner(System.in);
-        Library LibraryObject = new Library();
+
 
         while (true){
 
