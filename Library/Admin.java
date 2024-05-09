@@ -7,31 +7,32 @@ public class Admin {
     private int AdminId ;
     private String AdminPassword ;
 
-    Library LibraryObject = new Library();
-
     public Admin(String firstName, String lastName, int adminId, String adminPassword) {
 
-        FirstName = firstName;
-        LastName = lastName;
-        AdminId = adminId;
-        AdminPassword = adminPassword;
+        this.FirstName = firstName;
+        this.LastName = lastName;
+        this.AdminId = adminId;
+        this.AdminPassword = adminPassword;
         
 
     }
 
+
+
+
     public String getFirstName() {
-        return FirstName;
+        return this.FirstName;
     }
 
     public String getLastName() {
-        return LastName;
+        return this.LastName;
     }
 
     public int getAdminId() {
-        return AdminId;
+        return this.AdminId;
     }
 
     public String getAdminPassword() {
-        return AdminPassword;
+        return this.AdminPassword;
     }
 }
