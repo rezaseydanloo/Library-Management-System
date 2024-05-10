@@ -131,7 +131,7 @@ public class CLI {
 
             else if (line5.find()){
 
-                System.out.println("|-^-- accepted (L 4)");
+                System.out.println("|-^-- accepted (L 5)");
                 System.out.println("|----------------------------------------------------------");
                 LibraryObject_CLI.available();
 
@@ -139,12 +139,14 @@ public class CLI {
 
             else if (line6.find()) {
 
-                System.out.println("line 6 dorost");
+                System.out.println("|-^-- accepted (L 6)");
+                LibraryObject_CLI.RemoveMember(Integer.parseInt(line6.group(4)));
             }
 
             else if (line7.find()) {
 
-                System.out.println("line 7 dorost");
+                LibraryObject_CLI.ReturnBook(line7.group(3));
+                System.out.println("|-^-- accepted (L 7)");
             }
 
             else if (line8.find()){
@@ -278,6 +280,8 @@ public class CLI {
 
             else if (RemoveMatcher.find()) {
 
+                LibraryObject_CLI.RemoveAdmin(Integer.parseInt(RemoveMatcher.group(1)));
+                System.out.println("|----------------------------------------------------------");
 
             }
 
