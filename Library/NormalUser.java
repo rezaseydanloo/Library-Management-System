@@ -5,12 +5,12 @@ public class NormalUser {
     private String FirstName ;
     private String LastName ;
     private int UserId ;
-    private int UserPhoneNumber ;
+    private String UserPhoneNumber ;
     private String RegistrationTime ;
 
     Library LibraryObject = new Library();
 
-    public NormalUser(String firstName, String lastName, int userId, int userPhoneNumber, String registrationTime) {
+    public NormalUser(String firstName, String lastName, int userId, String userPhoneNumber, String registrationTime) {
         FirstName = firstName;
         LastName = lastName;
         UserId = userId;
@@ -30,11 +30,11 @@ public class NormalUser {
         return UserId;
     }
 
-    public int getUserPhoneNumber() {
+    public String getUserPhoneNumber() {
         return UserPhoneNumber;
     }
 
-    public String getRegistration() {
+    public String getRegistrationTime() {
         return RegistrationTime;
     }
 }
