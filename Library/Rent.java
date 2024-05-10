@@ -5,14 +5,14 @@ import java.util.HashMap;
 public class Rent {
 
     private  int RentalId;
-    private int UserId ;
+    private String UserId ;
     private String RentalDate ;
     private String BookName ;
 
     Library LibraryObject = new Library();
 
 
-    public Rent (int RentalId , int UserId , String BookNmae , String RentalDate){
+    public Rent (int RentalId , String UserId , String BookNmae , String RentalDate){
 
         this.RentalId=RentalId;
         this.UserId=UserId;
@@ -25,7 +25,7 @@ public class Rent {
         return RentalId;
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return UserId;
     }
 
