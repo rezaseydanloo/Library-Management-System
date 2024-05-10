@@ -4,11 +4,11 @@ public class MyApp {
 
     public static void main(String[] args) {
 
-        clicommand startclicommand  = new clicommand();
+        CLI startclicommand  = new CLI();
         CLIcommandSuperAdmin startsuperclicommand = new CLIcommandSuperAdmin();
         startclicommand.cli();
-        startsuperclicommand.SuperLogIn();
 
 
     }
+
 }
