@@ -11,33 +11,64 @@ public class Library  {
     ArrayList <NormalUser> NormalUserList = new ArrayList<>();
     ArrayList <Rent> RentList = new ArrayList<>();
 
+    private int Capacity=10;
+    private int H=0;
+    private int M=0;
 
+    public void setH(int h) {
+        H = h;
+    }
+
+    public void setM(int m) {
+        M = m;
+    }
+
+    public int getH() {
+        return H;
+    }
+
+    public int getM() {
+        return M;
+    }
+
+    public void setCapacity(int capacity) {
+        Capacity = capacity;
+    }
 
     //------------------------------------------------------------------------------------------------------------------
 
     public void add_book (String BookName , String Author , String Description){
 
-        boolean status = false;
+        if (Capacity>BookRepository.size()){
 
-        BookName=BookName.toLowerCase();
-        Author=Author.toLowerCase();
 
-        for (int i = 0 ; i< BookRepository.size() ; i++){
+            boolean status = false;
+            BookName=BookName.toLowerCase();
+            Author=Author.toLowerCase();
 
-            if (BookName.equals(BookRepository.get(i).getBookName())&&Author.equals(BookRepository.get(i).getAuthor())){
+            for (int i = 0 ; i< BookRepository.size() ; i++){
 
-                status = true ;
-                System.out.println("|--! book already added ");
+                if (BookName.equals(BookRepository.get(i).getBookName())&&Author.equals(BookRepository.get(i).getAuthor())){
+
+                    status = true ;
+                    System.out.println("|--! book already added ");
+                }
+            }
+
+            if (status==false){
+
+                Book BookObject = new Book(BookName,Author,Description,IdMaker(BookName,Author),true);
+                this.BookRepository.add(BookObject);
+
+
             }
         }
 
-        if (status==false){
-
-            Book BookObject = new Book(BookName,Author,Description,IdMaker(BookName,Author),true);
-            this.BookRepository.add(BookObject);
+        else
+            System.out.println("|--! Library's capacity is full ");
 
 
-        }
+
 
 
     }
