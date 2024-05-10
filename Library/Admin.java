@@ -13,11 +13,8 @@ public class Admin {
         this.LastName = lastName;
         this.AdminId = adminId;
         this.AdminPassword = adminPassword;
-        
 
     }
-
-
 
 
     public String getFirstName() {
