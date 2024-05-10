@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 public class CLIcommandSuperAdmin {
 
     Library LibraryObject = new Library();
-    clicommand startclicommand  = new clicommand();
+    CLI startclicommand  = new CLI();
 
 
     public void SuperLogIn(){
