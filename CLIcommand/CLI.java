@@ -19,9 +19,9 @@ public class CLI {
 
         Date date = new Date();
 
-        System.out.println("|-----cli -- " + date.toString());
+        System.out.println("|-----cli -- " + "| "+ date.toString() +  " | " + "8:00 - "+ LibraryObject_CLI.getH() + ":" + LibraryObject_CLI.getM());
         System.out.println("|-lib add book <name> <author> <Description>     :Add a new book to the library.");
-        System.out.println("|-lib get hrs                                    :Retrieve library operating hours (super admin privilege required).");
+        System.out.println("|-lib get hrs <hh:mm>                            :Retrieve library operating hours (admin privilege required).");
         System.out.println("|-lib add member <FName> <LName> <PhoneNumber>   :Add a new member to the library (admin privilege required).");
         System.out.println("|-lib rent <bookName> <LName> <FName> <memberID> :Rent a book for a specific member.");
         System.out.println("|-lib get available books                        :View available books for rental.");
@@ -47,7 +47,7 @@ public class CLI {
 
             Pattern Line1 = Pattern.compile("^(lib)\\s+(add)\\s+(book)\\s*<([a-zA-Z\\sa-zA-z]+)>\\s*" +
                     "<([a-zA-Z0-9\\sa-zA-z0-9]+)>\\s*<([a-zA-Z0-9\\sa-zA-z0-9]+)>", Pattern.CASE_INSENSITIVE);
-            Pattern Line2 = Pattern.compile("^(lib)\\s+(get)\\s+(hrs)", Pattern.CASE_INSENSITIVE);
+            Pattern Line2 = Pattern.compile("^(lib)\\s+(get)\\s+(hrs)\\s*<([0-9]{1,2}):([0-9]{1,2})>\\s*", Pattern.CASE_INSENSITIVE);
             Pattern Line3 = Pattern.compile("^(lib)\\s+(add)\\s+(member)\\s*<([a-zA-Z0-9\\sa-zA-z0-9]+)>\\s*<([a-zA-Z0-9\\sa-zA-z0-9]+)>\\s*<([0-9]{11})>",
                     Pattern.CASE_INSENSITIVE);
             Pattern Line4 = Pattern.compile("^(lib)\\s+(rent)\\s+<([a-zA-Z0-9\\sa-zA-z0-9]+)>\\s*<([a-zA-Z\\sa-zA-z]+)>\\s*<([a-zA-Z\\sa-zA-z]+)>" +
@@ -60,6 +60,7 @@ public class CLI {
             Pattern Line9 = Pattern.compile("<panel>" , Pattern.CASE_INSENSITIVE);
 
             Pattern AdminLogIn = Pattern.compile("<([a-zA-Z\\sa-zA-Z]+)>\\s*<([a-zA-Z\\sa-zA-Z]+)>\\s*<([a-zA-Z0-9]+)>");
+            Pattern CliPattern = Pattern.compile("<cli>" , Pattern.CASE_INSENSITIVE);
 
 
             Matcher line1 = Line1.matcher(inputString);
@@ -83,9 +84,60 @@ public class CLI {
             }
             else if (line2.matches()) {
 
-                System.out.println("line 2 dorost");
-            }
+                if ((Integer.parseInt(line2.group(4)))<24 && (Integer.parseInt(line2.group(4)))>=0){
 
+                    if ((Integer.parseInt(line2.group(5)))>=0 && (Integer.parseInt(line2.group(5)))<60){
+
+                        System.out.println("|----------------------------------------------------------");
+                        System.out.println("|-!! notice : at first admin should log in <first..> <last..> <pas..>");
+                        System.out.println("|--- <cli>");
+
+
+                        while (true){
+
+
+                            System.out.print("|->> ");
+                            inputString=input.nextLine();
+                            inputString=inputString.trim();
+                            Matcher adminLogIn = AdminLogIn.matcher(inputString);
+                            Matcher Cli = CliPattern.matcher(inputString);
+
+                            if (adminLogIn.find()){
+
+                                if (LibraryObject_CLI.AdminSupervision(adminLogIn.group(1),adminLogIn.group(2),adminLogIn.group(3))){
+
+                                    System.out.println("|-^-- accepted (Admin log in successfully)");
+                                    LibraryObject_CLI.setH(Integer.parseInt(line2.group(4)));
+                                    LibraryObject_CLI.setM(Integer.parseInt(line2.group(5)));
+                                    System.out.println("|-^-- accepted (L 2)(the working hours was set)");
+                                    break;
+                                }
+
+                            }
+
+                            else if (Cli.find()){
+
+                                System.out.println("|----------------------------------------------------------");
+                                cli();
+
+                            }
+
+                            else
+                                System.out.println("|-! something went wrong , try again ");
+                        }
+                    }
+
+                    else
+                        System.out.println("|-! something went wrong , try again ");
+
+                }
+
+                else
+                    System.out.println("|-! something went wrong , try again ");
+
+
+
+            }
 
 
             else if (line3.find()) {
@@ -179,15 +231,20 @@ public class CLI {
         System.out.println("|-----super admin log in page ");
         System.out.println("|-- description : log in as super admin for running the program ");
         System.out.println("|-- <FirstName> <LastName> <Password> ");
+        System.out.println("|-- <cli>");
 
         Pattern inputPattern = Pattern.compile("<reza>\\s*<seydanloo>\\s*<912138364761383>",Pattern.CASE_INSENSITIVE);
         Scanner input = new Scanner(System.in);
+
+        Pattern cliPattern = Pattern.compile("<cli>" , Pattern.CASE_INSENSITIVE);
+
 
         while (true){
 
             System.out.print("|->> ");
             String  inputString = input.nextLine();
             Matcher inputMatcher = inputPattern.matcher(inputString);
+            Matcher cliMatcher = cliPattern.matcher(inputString);
 
             if (inputMatcher.find()) {
 
@@ -228,6 +285,14 @@ public class CLI {
                 }
             }
 
+            else if (cliMatcher.find()) {
+
+                System.out.println("|----------------------------------------------------------");
+                cli();
+
+            }
+
+
             else
                 System.out.println("|-! something went wrong , try again ");
 
@@ -244,15 +309,18 @@ public class CLI {
         System.out.println("|-----super admin panel ");
         System.out.println("|-- add admin                       : <NewAdminFirstName> <..LastName> <Password>   ");
         System.out.println("|-- remove admin                    : <AdminID>");
-        System.out.println("|-- get hrs                         : <hrs>   ");
+        //System.out.println("|-- get hrs                         : <hrs>   ");
         System.out.println("|-- admins list Name , Id           : <list>  ");
+        System.out.println("|-- Library capacity                : capacity <...>");
         System.out.println("|-- go to cli (user command)        : <cli>   ");
+
 
         Pattern AddPattern = Pattern.compile("<([a-zA-Z\\sa-zA-Z]+)>\\s*<([a-zA-Z\\sa-zA-Z]+)>\\s*<([a-zA-Z0-9]+)>" , Pattern.CASE_INSENSITIVE);
         Pattern RemovePattern = Pattern.compile("<([0-9]{3,10})>" , Pattern.CASE_INSENSITIVE);
         Pattern HrsPattern = Pattern.compile("hrs" , Pattern.CASE_INSENSITIVE);
         Pattern CliPattern = Pattern.compile("cli" , Pattern.CASE_INSENSITIVE);
         Pattern ListPattern = Pattern.compile("list" , Pattern.CASE_INSENSITIVE);
+        Pattern CapacityPattern = Pattern.compile("(capacity)\\s*<([0-9]{1,4})>\\s*");
 
         Scanner input = new Scanner(System.in);
 
@@ -268,13 +336,15 @@ public class CLI {
             Matcher HrsMatcher = HrsPattern.matcher(inputString);
             Matcher CliMatcher = CliPattern.matcher(inputString);
             Matcher ListMatcher = ListPattern.matcher(inputString);
+            Matcher CapacityMatcher = CapacityPattern.matcher(inputString);
+
 
             if (AddMatcher.find()){
 
 
 
                 LibraryObject_CLI.add_admin(AddMatcher.group(1),AddMatcher.group(2),AddMatcher.group(3));
-                System.out.println("|-^-- accepted");
+                System.out.println("|-^-- accepted (admin Added)");
 
             }
 
@@ -301,6 +371,12 @@ public class CLI {
 
                 System.out.println("|----------------------------------------------------------");
                 LibraryObject_CLI.AdminIdFinder();
+
+            }
+
+            else if (CapacityMatcher.find()){
+
+                LibraryObject_CLI.setCapacity(Integer.parseInt(CapacityMatcher.group(2)));
 
             }
 
